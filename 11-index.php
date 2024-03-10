@@ -7,7 +7,6 @@ $array_2 = [
   ['二段目1','二段目2','二段目3']
 ];
 
-
 echo '<pre>';
 var_dump($array_2);
 echo '</pre>';
