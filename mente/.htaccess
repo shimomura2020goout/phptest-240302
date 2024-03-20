@@ -1,0 +1,5 @@
+AuthType Basic
+AuthName "IDとパスワードを入力してください"
+AuthUserFile C:\xampp\htdocs\xampp\phptest-240302\mente\.htpassword
+Require valid-user
+
