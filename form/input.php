@@ -2,6 +2,7 @@
 session_start();
 
 require 'validation.php';
+// require 'insert.php';
 
 header('X-FRAME-OPTIONS:DENY');
 if(!empty($_POST)){
@@ -37,9 +38,9 @@ if(!empty($_POST['btn_submit'])){
 
 
 <?php if($pageFlag === 1 ) : ?>
-<?php 
-  if($_POST['csrf'] === $_SESSION['csrfToken'])
-:?>
+
+<?php if(isset($_POST['csrf']) && $_POST['csrf'] === $_SESSION['csrfToken']) : ?>
+  
   <form method="POST" action="input.php">
     氏名
     <?php echo h($_POST['your_name']) ;?>
@@ -85,6 +86,14 @@ if(!empty($_POST['btn_submit'])){
   <?php 
   if($_POST['csrf'] === $_SESSION['csrfToken'])
 :?>
+
+// DB接続
+<?php require '../mente/insert.php';
+insertContact($_POST);
+?>
+// DB保存
+
+
   送信完了しました。
 <?php unset($_SESSION['csrfToken']); ?>
 <?php endif; ?>

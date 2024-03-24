@@ -15,7 +15,6 @@ require_once 'db_connection.php';
 //ユーザ入力あり prepare bind execute
 $sql = 'select * from contacts where id = :id'; //名前付きプレースホルダー
 $stmt = $PDO->prepare($sql); //プリペアードステートメント
-// $stmt->bindParam(':id', $id); //紐づけ
 $stmt->bindValue(':id', 1, PDO::PARAM_INT); //紐づけ
 $stmt->execute(); //実行
 
